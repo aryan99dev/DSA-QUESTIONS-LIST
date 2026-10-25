@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+// In Java 21+, you don't strictly need the "public class" wrapper,
+// but you can include it if your IDE complains about unnamed classes.
 public class Majority_Element1_Arrays {
 
     /**
@@ -17,17 +19,16 @@ public class Majority_Element1_Arrays {
             if (count == 0) {
                 candidate = num;
             }
-            if (num == candidate) {
-                count++;
-            } else {
-                count--;
-            }
+            // Simplified using a ternary operator
+            count += (num == candidate) ? 1 : -1;
         }
 
         return candidate;
     }
 
-    public static void main(String[] args) {
+    // Java 21+ allows this simplified main method (Preview feature in some versions)
+    // If this still fails, revert to: public static void main(String[] args)
+    public static void main() {
         int[] nums1 = {3, 2, 3};
         System.out.println("Input: " + Arrays.toString(nums1));
         System.out.println("Majority Element: " + majorityElement(nums1)); // Output: 3
